@@ -16,7 +16,10 @@
       href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css"
     />
     <link rel="stylesheet" href="" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
 
     <style>
       #map {
@@ -148,7 +151,7 @@
                   <li>
                     <a
                       href="./aqi.html"
-                      class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black"
                       >AQI</a
                     >
                   </li>
@@ -216,9 +219,15 @@
       <div id="map">
         <link
           rel="stylesheet"
-          href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css"
+          href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+          integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+          crossorigin=""
         />
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+        <script
+          src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+          integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+          crossorigin=""
+        ></script>
 
         <script>
           var OSM_URL = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
