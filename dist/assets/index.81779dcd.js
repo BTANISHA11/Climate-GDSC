@@ -28,14 +28,14 @@ void main() {\r
     float intensity = 1.05 - dot(vertexNormal, vec3(0.0, 0.0, 1.0));\r
     vec3 atmosphere = vec3(0.3, 0.6, 1.0) * pow(intensity, 1.5);\r
     gl_FragColor = vec4(atmosphere + texture2D(globeTexture, vertexUV).xyz, 1.0);\r
-}`;const as="/assets/Globe.6886fa78.jpg";var os=`varying vec3 vertexNormal;
+}`,as=`varying vec3 vertexNormal;
 
 void main() {\r
     vertexNormal = normalize(normalMatrix * normal);\r
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\r
-}`,us=`varying vec3 vertexNormal;
+}`,os=`varying vec3 vertexNormal;
 
 void main() {\r
     float intensity = pow(0.8 - dot(vertexNormal, vec3(0, 0, 1.0)), 2.0);\r
     gl_FragColor = vec4(0.3, 0.6, 1.0, 1.0) * intensity;\r
-}`;const ke=document.querySelector("#canvasContainer"),Re=new G.Scene,Nr=new G.PerspectiveCamera(75,ke.offsetWidth/ke.offsetHeight,.1,1e3),vi=new G.WebGLRenderer({antialias:!0,canvas:document.querySelector("canvas")});vi.setSize(ke.offsetWidth,ke.offsetHeight);vi.setPixelRatio(window.devicePixelRatio);const Br=new G.Mesh(new G.SphereGeometry(5,50,50),new G.ShaderMaterial({vertexShader:ns,fragmentShader:ss,uniforms:{globeTexture:{value:new G.TextureLoader().load(as)}}})),Ir=new G.Mesh(new G.SphereGeometry(5,50,50),new G.ShaderMaterial({vertexShader:os,fragmentShader:us,blending:G.AdditiveBlending,side:G.BackSide}));Ir.scale.set(1.15,1.15,1.15);Re.add(Ir);const xi=new G.Group;xi.add(Br);Re.add(xi);const Vr=new G.BufferGeometry,fs=new G.PointsMaterial({color:16777215}),Ur=[];for(let u=0;u<1e4;u++){const t=(Math.random()-.5)*2e3,e=(Math.random()-.5)*2e3,i=-(Math.random()*3e3);Ur.push(t,e,i)}Vr.setAttribute("position",new G.Float32BufferAttribute(Ur,3));const hs=new G.Points(Vr,fs);Re.add(hs);Nr.position.z=12;const Ce={x:1,y:1};addEventListener("mousemove",u=>{Ce.x=u.clientX/innerWidth*2-1,Ce.y=-(u.clientY/innerHeight)*2+1});function Yr(){requestAnimationFrame(Yr),vi.render(Re,Nr),Br.rotation.y+=.009,Lr.to(xi.rotation,{x:-Ce.y*.9,y:Ce.x*.9,duration:2})}Yr();
+}`;const us="/assets/Globe.6886fa78.jpg",ke=document.querySelector("#canvasContainer"),Re=new G.Scene,Nr=new G.PerspectiveCamera(75,ke.offsetWidth/ke.offsetHeight,.1,1e3),vi=new G.WebGLRenderer({antialias:!0,canvas:document.querySelector("canvas")});vi.setSize(ke.offsetWidth,ke.offsetHeight);vi.setPixelRatio(window.devicePixelRatio);const Br=new G.Mesh(new G.SphereGeometry(5,50,50),new G.ShaderMaterial({vertexShader:ns,fragmentShader:ss,uniforms:{globeTexture:{value:new G.TextureLoader().load(us)}}})),Ir=new G.Mesh(new G.SphereGeometry(5,50,50),new G.ShaderMaterial({vertexShader:as,fragmentShader:os,blending:G.AdditiveBlending,side:G.BackSide}));Ir.scale.set(1.15,1.15,1.15);Re.add(Ir);const xi=new G.Group;xi.add(Br);Re.add(xi);const Vr=new G.BufferGeometry,fs=new G.PointsMaterial({color:16777215}),Ur=[];for(let u=0;u<1e4;u++){const t=(Math.random()-.5)*2e3,e=(Math.random()-.5)*2e3,i=-(Math.random()*3e3);Ur.push(t,e,i)}Vr.setAttribute("position",new G.Float32BufferAttribute(Ur,3));const hs=new G.Points(Vr,fs);Re.add(hs);Nr.position.z=12;const Ce={x:1,y:1};addEventListener("mousemove",u=>{Ce.x=u.clientX/innerWidth*2-1,Ce.y=-(u.clientY/innerHeight)*2+1});function Yr(){requestAnimationFrame(Yr),vi.render(Re,Nr),Br.rotation.y+=.009,Lr.to(xi.rotation,{x:-Ce.y*.9,y:Ce.x*.9,duration:2})}Yr();

@@ -7,6 +7,8 @@ import fragmentShader from "../shaders/fragment.glsl";
 
 import atmosphereVertexShader from "../shaders/atmosphereVertex.glsl";
 import atmosphereFragmentShader from "../shaders/atmosphereFragment.glsl";
+import globeimg from "../img/Globe.jpg";
+
 // import { Float32BufferAttribute } from "three";
 
 // console.log(vertexShader);
@@ -39,7 +41,7 @@ const sphere = new THREE.Mesh(
     fragmentShader: fragmentShader,
     uniforms: {
       globeTexture: {
-        value: new THREE.TextureLoader().load("../img/Globe.jpg"),
+        value: new THREE.TextureLoader().load(globeimg),
       },
     },
     // map: new THREE.TextureLoader().load("./img/Globe.jpg"),
